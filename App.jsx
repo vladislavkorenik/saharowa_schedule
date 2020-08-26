@@ -18,7 +18,11 @@ const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <Text>{days.join(',')}</Text>
+      <View>
+        <ScrollView sna decelerationRate="normal" horizontal>
+          <Text>{days.join(',')}</Text>
+        </ScrollView>
+      </View>
     </>
   )
 }
