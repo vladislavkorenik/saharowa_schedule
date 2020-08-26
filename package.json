@@ -1,35 +1,29 @@
 {
-  "main": "index.js",
+  "name": "saharowa_schedule",
+  "version": "0.0.1",
+  "private": true,
   "precommit": "lint",
   "scripts": {
     "ios": "react-native run-ios --simulator='iPhone SE'",
     "android": "react-native run-android",
-    "lint": "esw src/**",
-    "lint-watch": "esw -w --changed src/**",
-    "postinstall": "cd ./ios && pod install && cd ..",
-    "web": "expo start --web",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "lint": "esw src/**",
+    "lint-watch": "esw -w --changed src/**"
   },
   "dependencies": {
-    "expo": "~38.0.9",
-    "expo-splash-screen": "^0.5.0",
-    "expo-status-bar": "^1.0.0",
-    "expo-updates": "~0.2.10",
-    "react": "~16.11.0",
-    "react-dom": "~16.11.0",
-    "react-native": "~0.62.2",
-    "react-native-gesture-handler": "~1.6.1",
-    "react-native-reanimated": "~1.9.0",
-    "react-native-screens": "~2.9.0",
-    "react-native-unimodules": "~0.10.1",
-    "react-native-web": "~0.11.7"
+    "moment": "^2.27.0",
+    "moment-range": "^4.0.2",
+    "react": "16.13.1",
+    "react-native": "0.63.2"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0",
+    "@babel/core": "^7.11.4",
+    "@babel/runtime": "^7.11.2",
+    "@react-native-community/eslint-config": "^2.0.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "~25.2.6",
+    "babel-jest": "^26.3.0",
     "babel-preset-airbnb": "^5.0.0",
     "babel-preset-react-native": "^4.0.1",
     "eslint": "^7.7.0",
@@ -43,14 +37,14 @@
     "eslint-plugin-react-hooks": "^4.1.0",
     "eslint-plugin-react-native": "^3.9.0",
     "eslint-watch": "^7.0.0",
-    "jest": "~25.2.6",
+    "jest": "^26.4.2",
+    "metro-react-native-babel-preset": "^0.63.0",
     "pre-commit": "^1.2.2",
-    "prettier": "^2.1.0",
+    "prettier": "^2.1.1",
     "prettier-eslint": "^11.0.0",
-    "react-test-renderer": "~16.11.0"
+    "react-test-renderer": "16.13.1"
   },
   "jest": {
     "preset": "react-native"
-  },
-  "private": true
+  }
 }

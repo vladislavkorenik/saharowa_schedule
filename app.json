@@ -1,12 +1,4 @@
 {
-  "name": "sahar",
-  "displayName": "sahar",
-  "expo": {
-    "name": "sahar",
-    "slug": "sahar",
-    "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
-  }
+  "name": "saharowa_schedule",
+  "displayName": "saharowa_schedule"
 }

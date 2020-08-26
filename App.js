@@ -1,21 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { StyleSheet, ScrollView, View, Text, StatusBar } from 'react-native'
+import moment from 'moment'
+import { extendMoment } from 'moment-range'
 
-export default function App() {
+const momentVar = extendMoment(moment)
+const interval = 'month'
+const count = 2
+const dateNow = momentVar(new Date())
+
+const range = momentVar.rangeFromInterval(interval, count, dateNow)
+const days = Array.from(range.by('day'))
+const allDaysArray = days.map((m) => m.format('DD.MM.YYYY'))
+
+console.log(allDaysArray)
+
+const App: () => React$Node = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <>
+      <StatusBar barStyle="dark-content" />
+      <Text>{days.join(',')}</Text>
+    </>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const styles = StyleSheet.create({})
+
+export default App
