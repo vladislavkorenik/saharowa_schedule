@@ -12,6 +12,7 @@
     "lint-watch": "esw -w --changed src/**"
   },
   "dependencies": {
+    "expo": "^38.0.9",
     "moment": "^2.27.0",
     "moment-range": "^4.0.2",
     "react": "16.13.1",
