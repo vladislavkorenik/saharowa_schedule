@@ -12,9 +12,13 @@ const styles = StyleSheet.create({
     color: 'yellow'
   },
   whiteColor: {
-    color: 'white'
+    color: 'white',
+    textAlign: 'right'
   },
   coupleContainer: {
+    marginLeft: 5
+  },
+  coupleNameContainer: {
     flexDirection: 'row'
   },
   container: {
@@ -42,7 +46,8 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 12,
     flexWrap: 'wrap',
-    width: 100
+    width: 160,
+    textAlign: 'right'
   }
 })
 
@@ -55,14 +60,15 @@ const SubjectItem = ({ subject }) => {
       : subject.coupleType === 'ПЗ'
       ? styles.yellowColor
       : {}
+
   return (
     <>
       <View style={styles.container}>
         <Text>{subject.time} </Text>
-        <View>
-          <View style={styles.coupleContainer}>
+        <View style={styles.coupleContainer}>
+          <View style={styles.coupleNameContainer}>
             <Text style={styles.whiteColor}>{subject.coupleName}</Text>
-            <Text style={coupleTypeColor}> ({subject.coupleType})</Text>
+            <Text style={coupleTypeColor}> {subject.coupleType ? `(${subject.coupleType})` : ''}</Text>
           </View>
           <Text style={styles.coupleLocation}>{subject.coupleLocation}</Text>
         </View>

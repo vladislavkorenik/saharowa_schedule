@@ -38,7 +38,7 @@ const App: () => React$Node = () => {
 
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar backgroundColor="#8b00cc" />
       <View style={styles.container}>
         <ScrollView
           decelerationRate="normal"

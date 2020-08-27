@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   date: {
-    margin: 3,
     padding: 5,
     color: 'white',
     textAlign: 'center',
@@ -23,7 +22,17 @@ const SubjectList = (props) => {
   const dayName = props.day.format('dddd')
   const localSchedule = schedule[dayName.toLowerCase()]
 
-  const renderItem = ({ item }) => <SubjectItem subject={item} />
+  const renderItem = ({ item }) => {
+    if (props.day.week() % 2 === 0 && item.week === 'even') {
+      return <SubjectItem subject={item} />
+    }
+    if (props.day.week() % 2 !== 0 && item.week === 'odd') {
+      return <SubjectItem subject={item} />
+    }
+    if (item.week === 'all') {
+      return <SubjectItem subject={item} />
+    }
+  }
   return (
     <>
       <View style={styles.container}>
