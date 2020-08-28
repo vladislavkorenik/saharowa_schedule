@@ -23,14 +23,22 @@ const SubjectList = (props) => {
   const localSchedule = schedule[dayName.toLowerCase()]
 
   const renderItem = ({ item }) => {
-    if (props.day.week() % 2 === 0 && item.week === 'even') {
-      return <SubjectItem subject={item} />
-    }
-    if (props.day.week() % 2 !== 0 && item.week === 'odd') {
-      return <SubjectItem subject={item} />
-    }
     if (item.week === 'all') {
       return <SubjectItem subject={item} />
+    }
+
+    const currentAcademicWeek = props.day.week() - 35
+    const weekType = currentAcademicWeek % 2 === 0 ? 'even' : 'odd'
+
+    if (item.week === weekType) {
+      return <SubjectItem subject={item} />
+    }
+    if (item.weeks) {
+      const hasSubjectOnceAWeek = item.weeks.some((weekValue) => weekValue === currentAcademicWeek)
+
+      if (hasSubjectOnceAWeek) {
+        return <SubjectItem subject={item} />
+      }
     }
   }
   return (

@@ -3,12 +3,15 @@ import { StyleSheet, View, Text } from 'react-native'
 
 const styles = StyleSheet.create({
   cyanColor: {
-    color: 'cyan'
+    fontWeight: 'bold',
+    color: '#4dff4d'
   },
   redColor: {
+    fontWeight: 'bold',
     color: 'red'
   },
   yellowColor: {
+    fontWeight: 'bold',
     color: 'yellow'
   },
   whiteColor: {

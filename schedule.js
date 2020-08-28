@@ -130,7 +130,7 @@ export const schedule = {
       coupleType: 'ЛЗ',
       teacherName: 'Бодиловская О.А.',
       coupleLocation: 'K3-305',
-      week: 'odd',
+      week: null,
       weeks: [3, 5, 7, 9, 11]
     },
     {
@@ -147,7 +147,8 @@ export const schedule = {
       coupleType: 'ЛЗ',
       teacherName: 'Бодиловская О.А.',
       coupleLocation: 'K3-305',
-      week: [3, 5, 7, 9, 11]
+      week: null,
+      weeks: [3, 5, 7, 9, 11]
     },
     {
       time: '12.55\n14.15',
