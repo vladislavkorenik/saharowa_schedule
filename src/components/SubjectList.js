@@ -1,22 +1,8 @@
 import React from 'react'
-import { StyleSheet, View, Text, FlatList } from 'react-native'
-import { w } from '../constants'
-import { schedule } from '../schedule'
-import SubjectItem from './SubjectItem'
+import { View, FlatList } from 'react-native'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: w,
-    backgroundColor: 'white'
-  },
-  date: {
-    padding: 5,
-    color: 'white',
-    textAlign: 'center',
-    backgroundColor: '#8b00cc'
-  }
-})
+import SubjectItem from './SubjectItem'
+import { schedule } from '../consts/schedule'
 
 const SubjectList = (props) => {
   const dayName = props.day.format('dddd')
@@ -43,10 +29,7 @@ const SubjectList = (props) => {
   }
   return (
     <>
-      <View style={styles.container}>
-        <Text style={styles.date}>
-          {dayName} {props.day.format('DD.MM.YY')}
-        </Text>
+      <View>
         <FlatList
           data={localSchedule}
           renderItem={renderItem}

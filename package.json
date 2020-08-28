@@ -16,7 +16,10 @@
     "moment": "^2.27.0",
     "moment-range": "^4.0.2",
     "react": "16.13.1",
-    "react-native": "0.63.2"
+    "react-native": "0.63.2",
+    "react-native-animated-swiper": "^0.0.23",
+    "react-native-datepicker": "^1.7.2",
+    "react-native-vector-icons": "^7.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
