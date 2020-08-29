@@ -1,19 +1,4 @@
 {
   "name": "saharowa_schedule",
-  "displayName": "saharowa_schedule",
-  "expo": {
-    "name": "Schedule",
-    "icon": "./icon.png",
-    "version": "1.0.0",
-    "slug": "saharova-schedule",
-    "ios": {
-      "bundleIdentifier": "com.evsx.schedule",
-      "buildNumber": "1.0.0"
-    },
-    "android": {
-      "package": "com.evsx.schedule",
-      "versionCode": 1
-    }
-  }
+  "displayName": "Schedule"
 }
-

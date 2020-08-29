@@ -4,7 +4,7 @@ import { extendMoment } from 'moment-range'
 import Swiper from 'react-native-animated-swiper'
 import { StyleSheet, View, StatusBar } from 'react-native'
 
-import { DateSelector, SubjectList } from './components'
+import { DateSelector, SubjectList } from './src/components'
 
 const styles = StyleSheet.create({
   container: {
