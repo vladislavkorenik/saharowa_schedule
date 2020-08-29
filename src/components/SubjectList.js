@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, FlatList } from 'react-native'
+import { View, FlatList, Text } from 'react-native'
 
 import SubjectItem from './SubjectItem'
 import { schedule } from '../consts/schedule'
@@ -30,13 +30,17 @@ const SubjectList = (props) => {
   return (
     <>
       <View>
-        <FlatList
-          data={localSchedule}
-          renderItem={renderItem}
-          keyExtractor={(item) => {
-            return item.time + Math.random()
-          }}
-        />
+        {!localSchedule.length ? (
+          <Text style={{ textAlign: 'center', marginTop: 10, fontWeight: 'bold' }}>Расписание не найдено</Text>
+        ) : (
+          <FlatList
+            data={localSchedule}
+            renderItem={renderItem}
+            keyExtractor={(item) => {
+              return item.time + Math.random()
+            }}
+          />
+        )}
       </View>
     </>
   )
