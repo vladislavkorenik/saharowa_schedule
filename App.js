@@ -22,7 +22,7 @@ const range = momentVar.rangeFromInterval(interval, count, dateNow)
 //generate 2 month date range from now
 */
 
-const dates = [moment('2020-09-01', 'YYYY-MM-DD'), moment('2020-09-06', 'YYYY-MM-DD')]
+const dates = [moment('2020-09-01', 'YYYY-MM-DD'), moment('2020-09-13', 'YYYY-MM-DD')]
 const range = momentVar.range(dates)
 
 const days = Array.from(range.by('day'))

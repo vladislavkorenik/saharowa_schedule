@@ -45,7 +45,7 @@ const DateSelector = (props) => {
   */
 
   const minDate = moment('2020-09-01').format('DD.MM.YY')
-  const maxDate = moment('2020-09-06').format('DD.MM.YY')
+  const maxDate = moment('2020-09-13').format('DD.MM.YY')
 
   const [date, setDate] = useState(props.day.format('DD.MM.YY'))
   const [modalVisible, setModalVisible] = useState(false)
