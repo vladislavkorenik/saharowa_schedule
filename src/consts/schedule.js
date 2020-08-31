@@ -1,4 +1,161 @@
 export const schedule = {
+  tuesday: [
+    {
+      time: '11:35\n12:55',
+      coupleName: 'Английский язык',
+      coupleType: 'ПЗ',
+      teacherName: 'Климова О.А, Третьяк Г.В., Суббота Е.И., Тюрдеева А.И., Никитина Л.Н., Мистюкевич Я.И.',
+      coupleLocation: 'К3-205, 412, 309, 305, 301, 218',
+      week: 'odd'
+    },
+    {
+      time: '13:25\n14:45',
+      coupleName: 'Математика. Факультатив.',
+      coupleType: 'ПЗ',
+      teacherName: 'Радюк Дарья Ивановна',
+      coupleLocation: 'K3-103',
+      week: 'odd'
+    }
+  ],
+  wednesday: [
+    {
+      time: '08:00\n09:20',
+      coupleName: 'Физическая культура',
+      coupleType: 'ПЗ',
+      teacherName: null,
+      coupleLocation: 'K1',
+      week: 'odd'
+    },
+    {
+      time: '10:05\n11:25',
+      coupleName: 'Основы биологии. Ботаника',
+      coupleType: 'ЛК',
+      teacherName: 'Бученков Игорь Эдуардович',
+      coupleLocation: 'K3-103',
+      week: 'odd'
+    },
+    {
+      time: '11.35\n12.55',
+      coupleName: 'Основы биологии. Ботаника',
+      coupleType: 'ЛК',
+      teacherName: 'Бученков Игорь Эдуардович',
+      coupleLocation: 'K3-103',
+      week: 'odd'
+    },
+    {
+      time: '13:25\n14:45',
+      coupleName: 'Английский язык',
+      coupleType: 'ПЗ',
+      teacherName: 'Климова О.А, Третьяк Г.В., Суббота Е.И., Тюрдеева А.И., Никитина Л.Н., Мистюкевич Я.И.',
+      coupleLocation: 'К3-205, 412, 309, 305, 301, 218',
+      week: 'odd'
+    },
+    {
+      time: '14:55\n16:15',
+      coupleName: 'Математика. Факультатив.',
+      coupleType: 'ПЗ',
+      teacherName: 'Радюк Дарья Ивановна',
+      coupleLocation: 'K3-103',
+      week: 'odd'
+    }
+  ],
+  thursday: [
+    {
+      time: '8:30\n9:50',
+      coupleName: 'Основы биологии. Ботаника',
+      coupleType: 'ЛК',
+      teacherName: 'Бученков Игорь Эдуардович',
+      coupleLocation: 'K3-103',
+      week: 'odd'
+    },
+    {
+      time: '10:05\n11:25',
+      coupleName: 'Основы биологии. Ботаника',
+      coupleType: 'ЛК',
+      teacherName: 'Бученков Игорь Эдуардович',
+      coupleLocation: 'K3-103',
+      week: 'odd'
+    },
+    {
+      time: '11:35\n12:55',
+      coupleName: 'Математика. Факультатив.',
+      coupleType: 'ЛК',
+      teacherName: 'Радюк Дарья Ивановна',
+      coupleLocation: 'K3-407',
+      week: 'odd'
+    }
+  ],
+  friday: [
+    {
+      time: '10:05\n11:25',
+      coupleName: 'Высшая математика',
+      coupleType: 'ЛК',
+      teacherName: 'Радюк Дарья Ивановна',
+      coupleLocation: 'K3-211',
+      week: 'odd'
+    },
+    {
+      time: '11:35\n12:55',
+      coupleName: 'Основы биологии. Ботаника',
+      coupleType: 'ЛК',
+      teacherName: 'Бученков Игорь Эдуардович',
+      coupleLocation: 'K3-103',
+      week: 'odd'
+    },
+    {
+      time: '13:25\n14:45',
+      coupleName: 'Основы биологии. Ботаника',
+      coupleType: 'ЛК',
+      teacherName: 'Бученков Игорь Эдуардович',
+      coupleLocation: 'K3-103',
+      week: 'odd'
+    },
+    {
+      time: '14:55\n16:15',
+      coupleName: 'Химия факультатив',
+      coupleType: 'ЛК',
+      teacherName: 'Слобода Наталья Александровна',
+      coupleLocation: 'K3-103',
+      week: 'odd'
+    }
+  ],
+  saturday: [
+    {
+      time: '08:30\n09:50',
+      coupleName: 'Основы биологии. Ботаника',
+      coupleType: 'ЛК',
+      teacherName: 'Бученков Игорь Эдуардович',
+      coupleLocation: 'K3-103',
+      week: 'odd'
+    },
+    {
+      time: '10:05\n11:25',
+      coupleName: 'Основы биологии. Ботаника',
+      coupleType: 'ЛК',
+      teacherName: 'Бученков Игорь Эдуардович',
+      coupleLocation: 'K3-103',
+      week: 'odd'
+    },
+    {
+      time: '11:35\n12:55',
+      coupleName: 'Химия. Общая и неорганическая химия',
+      coupleType: 'ЛК',
+      teacherName: 'Филлипович Людмила Николаевна',
+      coupleLocation: 'K3-103',
+      week: 'odd'
+    },
+    {
+      time: '13:25\n14:45',
+      coupleName: 'История',
+      coupleType: 'ЛК',
+      teacherName: 'Плавинский Николай Александрович',
+      coupleLocation: 'K3-103',
+      week: 'odd'
+    }
+  ],
+  sunday: []
+}
+export const scheduleSUBJECT = {
   monday: [
     {
       time: '9.35\n10.55',

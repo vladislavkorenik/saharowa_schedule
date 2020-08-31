@@ -46,10 +46,10 @@ const styles = StyleSheet.create({
     bottom: 5
   },
   teacherName: {
+    flex: 1,
     color: 'white',
     fontSize: 12,
     flexWrap: 'wrap',
-    width: 160,
     textAlign: 'right'
   }
 })
