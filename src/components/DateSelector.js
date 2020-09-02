@@ -6,6 +6,7 @@ import { StyleSheet, View, Text, Modal, TouchableHighlight } from 'react-native'
 
 import { w } from '../consts/constants'
 import { SubjectList } from './SubjectList'
+import { UpdateButton } from './UpdateButton'
 
 const styles = StyleSheet.create({
   container: {
@@ -57,7 +58,6 @@ const DateSelector = (props) => {
           <Text style={styles.whiteText}>{props.day.format('dddd')}</Text>
           <Icon name="today" size={17} style={styles.whiteText} />
         </View>
-
         <DatePicker
           style={styles.date}
           date={props.day.format('DD.MM.YY')}
@@ -84,6 +84,7 @@ const DateSelector = (props) => {
             if (newDate !== props.day.format('DD.MM.YY')) setModalVisible(true)
           }}
         />
+        <UpdateButton />
       </View>
       <View>
         <Modal visible={modalVisible} animationType="slide">

@@ -64,21 +64,20 @@ const App = () => {
 
   const updateScheduleState = async () => {
     const dataFromStorage = await getData()
+    const hasDataFromStorage = Object.keys(dataFromStorage).length
 
-    if (!hasSchedule) {
+    if (!hasSchedule && hasDataFromStorage) {
       setSchedules(dataFromStorage)
       setScheduleList([generateScheduleList(0, dataFromStorage), generateScheduleList(1, dataFromStorage)])
     }
 
-    if (!Object.keys(dataFromStorage).length) {
-      const res = await fetch('https://json.extendsclass.com/bin/b09ffd8f4466')
-
+    if (!hasDataFromStorage && !hasSchedule) {
+      const res = await fetch('https://api.npoint.io/232b814040601adb115e')
       const json = await res.json()
-      if (Object.keys(json).length) {
-        setSchedules(json)
-        setScheduleList([generateScheduleList(0, json), generateScheduleList(1, json)])
-        storeData(json).then()
-      }
+
+      await storeData(json)
+      setSchedules(json)
+      setScheduleList([generateScheduleList(0, json), generateScheduleList(1, json)])
     }
   }
 
