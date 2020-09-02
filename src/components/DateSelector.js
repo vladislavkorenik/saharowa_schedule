@@ -1,8 +1,8 @@
 import moment from 'moment'
 import React, { useState } from 'react'
+import DatePicker from 'react-native-datepicker'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { StyleSheet, View, Text, Modal, TouchableHighlight } from 'react-native'
-import DatePicker from 'react-native-datepicker'
 
 import { w } from '../consts/constants'
 import { SubjectList } from './SubjectList'
@@ -44,7 +44,7 @@ const DateSelector = (props) => {
   //generate 2 month date range from now
   */
 
-  const minDate = moment('2020-09-01').format('DD.MM.YY')
+  const minDate = moment(new Date()).format('DD.MM.YY')
   const maxDate = moment('2020-09-13').format('DD.MM.YY')
 
   const [date, setDate] = useState(props.day.format('DD.MM.YY'))
@@ -98,7 +98,7 @@ const DateSelector = (props) => {
             </TouchableHighlight>
           </View>
 
-          <SubjectList day={props.days[props.days.findIndex((item) => item.format('DD.MM.YY') === date)]} />
+          <SubjectList day={moment(date, 'DD.MM.YY')} schedules={props.schedules} />
         </Modal>
       </View>
     </>

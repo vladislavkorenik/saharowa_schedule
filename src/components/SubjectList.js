@@ -2,11 +2,10 @@ import React from 'react'
 import { View, FlatList, Text } from 'react-native'
 
 import SubjectItem from './SubjectItem'
-import { schedule } from '../consts/schedule'
 
 const SubjectList = (props) => {
   const dayName = props.day.format('dddd')
-  const localSchedule = schedule[dayName.toLowerCase()]
+  const localSchedule = props.schedules[dayName.toLowerCase()] || []
 
   const renderItem = ({ item }) => {
     if (item.week === 'all') {

@@ -1,58 +1,107 @@
 import moment from 'moment'
-import React, { useState } from 'react'
 import { extendMoment } from 'moment-range'
 import Swiper from 'react-native-animated-swiper'
-import { StyleSheet, View, StatusBar } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import AsyncStorage from '@react-native-community/async-storage'
+import { StyleSheet, View, StatusBar, ActivityIndicator } from 'react-native'
 
 import { DateSelector, SubjectList } from './src/components'
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  loader: {
+    flex: 1
   }
 })
 
-const momentVar = extendMoment(moment)
-/*
-const interval = 'month'
-const count = 2
-const dateNow = momentVar(new Date())
-
-const range = momentVar.rangeFromInterval(interval, count, dateNow)
-//generate 2 month date range from now
-*/
-
-const dates = [moment('2020-09-01', 'YYYY-MM-DD'), moment('2020-09-13', 'YYYY-MM-DD')]
-const range = momentVar.range(dates)
-
-const days = Array.from(range.by('day'))
-
 const App = () => {
-  const generateScheduleList = (dateNumber) => {
+  const [schedules, setSchedules] = useState({})
+  const [scheduleList, setScheduleList] = useState([])
+
+  const hasSchedule = !!Object.keys(schedules).length
+  const momentVar = extendMoment(moment)
+  /*
+  const interval = 'month'
+  const count = 2
+  const dateNow = momentVar(new Date())
+
+  const range = momentVar.rangeFromInterval(interval, count, dateNow)
+  //generate 2 month date range from now
+  */
+
+  const dates = [moment(new Date(), 'YYYY-MM-DD'), moment('2020-09-13', 'YYYY-MM-DD')]
+  const range = momentVar.range(dates)
+
+  const days = Array.from(range.by('day'))
+
+  const generateScheduleList = (dateNumber, schedulesObj) => {
     return (
       <View key={days[dateNumber]}>
-        <DateSelector day={days[dateNumber]} days={days} />
-        <SubjectList day={days[dateNumber]} />
+        <DateSelector day={days[dateNumber]} schedules={schedulesObj} />
+        <SubjectList day={days[dateNumber]} schedules={schedulesObj} />
       </View>
     )
   }
 
-  const [scheduleList, setScheduleList] = useState([generateScheduleList(0), generateScheduleList(1)])
-  const [index, setIndex] = useState(2)
+  const storeData = async (value) => {
+    try {
+      await AsyncStorage.setItem('schedule', JSON.stringify(value))
+    } catch (e) {
+      // saving error
+    }
+  }
 
-  const onScrollHandler = (dateNumber, setDateNumber, setSchedule, schedule) => {
-    if (days[dateNumber]) {
-      setSchedule([...schedule, generateScheduleList(dateNumber)])
-      setDateNumber(dateNumber + 1)
+  const getData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem('schedule')
+      return jsonValue != null ? JSON.parse(jsonValue) : {}
+    } catch (e) {
+      // error reading value
+    }
+  }
+
+  const updateScheduleState = async () => {
+    const dataFromStorage = await getData()
+
+    if (!hasSchedule) {
+      setSchedules(dataFromStorage)
+      setScheduleList([generateScheduleList(0, dataFromStorage), generateScheduleList(1, dataFromStorage)])
+    }
+
+    if (!Object.keys(dataFromStorage).length) {
+      const res = await fetch('https://json.extendsclass.com/bin/b09ffd8f4466')
+
+      const json = await res.json()
+      if (Object.keys(json).length) {
+        setSchedules(json)
+        setScheduleList([generateScheduleList(0, json), generateScheduleList(1, json)])
+        storeData(json).then()
+      }
+    }
+  }
+
+  useEffect(() => {
+    updateScheduleState().then()
+  })
+
+  const onScrollHandler = (setSchedule, schedule) => {
+    if (days[schedule.length]) {
+      setSchedule([...schedule, generateScheduleList(schedule.length, schedules)])
     }
   }
 
   return (
     <>
       <StatusBar backgroundColor="#8b00cc" />
-      <View style={styles.container}>
-        <Swiper onScroll={() => onScrollHandler(index, setIndex, setScheduleList, scheduleList)}>{scheduleList}</Swiper>
-      </View>
+      {!hasSchedule ? (
+        <ActivityIndicator size="large" color="#8b00cc" style={styles.loader} animating={!hasSchedule} />
+      ) : (
+        <View style={styles.container}>
+          <Swiper onScroll={() => onScrollHandler(setScheduleList, scheduleList)}>{scheduleList}</Swiper>
+        </View>
+      )}
     </>
   )
 }
