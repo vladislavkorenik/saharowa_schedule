@@ -36,20 +36,19 @@ const App = () => {
 
   const days = Array.from(range.by('day'))
 
-  const generateScheduleList = (dateNumber, schedulesObj) => {
-    return (
-      <View key={days[dateNumber]}>
-        <DateSelector day={days[dateNumber]} schedules={schedulesObj} />
-        <SubjectList day={days[dateNumber]} schedules={schedulesObj} />
-      </View>
-    )
-  }
-
   const storeData = async (value) => {
     try {
       await AsyncStorage.setItem('schedule', JSON.stringify(value))
     } catch (e) {
       // saving error
+    }
+  }
+
+  const removeValue = async () => {
+    try {
+      await AsyncStorage.removeItem('schedule')
+    } catch (e) {
+      // remove error
     }
   }
 
@@ -60,6 +59,21 @@ const App = () => {
     } catch (e) {
       // error reading value
     }
+  }
+
+  const reloadApp = () => {
+    removeValue().then()
+    setSchedules({})
+    setScheduleList([])
+  }
+
+  const generateScheduleList = (dateNumber, schedulesObj) => {
+    return (
+      <View key={days[dateNumber]}>
+        <DateSelector day={days[dateNumber]} schedules={schedulesObj} reloadApp={reloadApp} />
+        <SubjectList day={days[dateNumber]} schedules={schedulesObj} />
+      </View>
+    )
   }
 
   const updateScheduleState = async () => {

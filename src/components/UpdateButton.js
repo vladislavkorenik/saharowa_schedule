@@ -1,7 +1,7 @@
 import React from 'react'
-import { DevSettings, StyleSheet } from 'react-native'
+import { StyleSheet, Alert } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import AsyncStorage from '@react-native-community/async-storage'
+import { useNetInfo } from '@react-native-community/netinfo'
 
 const styles = StyleSheet.create({
   updateIcon: {
@@ -12,15 +12,9 @@ const styles = StyleSheet.create({
   }
 })
 
-const removeValue = async () => {
-  try {
-    await AsyncStorage.removeItem('schedule')
-  } catch (e) {
-    // remove error
-  }
-}
+export const UpdateButton = (props) => {
+  const netInfo = useNetInfo()
 
-export const UpdateButton = () => {
   return (
     <>
       <Icon
@@ -28,8 +22,7 @@ export const UpdateButton = () => {
         size={30}
         style={styles.updateIcon}
         onPress={() => {
-          removeValue().then()
-          DevSettings.reload()
+          netInfo.isConnected ? props.reloadApp() : Alert.alert('Please connect to the internet to update schedule!')
         }}
       />
     </>

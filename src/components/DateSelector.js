@@ -84,7 +84,7 @@ const DateSelector = (props) => {
             if (newDate !== props.day.format('DD.MM.YY')) setModalVisible(true)
           }}
         />
-        <UpdateButton />
+        <UpdateButton reloadApp={props.reloadApp} />
       </View>
       <View>
         <Modal visible={modalVisible} animationType="slide">
