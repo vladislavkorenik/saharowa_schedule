@@ -14,6 +14,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'yellow'
   },
+  blueColor: {
+    fontWeight: 'bold',
+    color: '#0000cc'
+  },
   whiteColor: {
     color: 'white',
     textAlign: 'right'
@@ -46,7 +50,6 @@ const styles = StyleSheet.create({
     bottom: 5
   },
   teacherName: {
-    flex: 1,
     color: 'white',
     fontSize: 12,
     flexWrap: 'wrap',
@@ -62,6 +65,8 @@ const SubjectItem = ({ subject }) => {
       ? styles.cyanColor
       : subject.coupleType === 'ПЗ'
       ? styles.yellowColor
+      : subject.coupleType === 'Факультатив'
+      ? styles.blueColor
       : {}
 
   return (

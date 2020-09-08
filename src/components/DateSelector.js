@@ -38,15 +38,9 @@ const styles = StyleSheet.create({
 })
 
 const DateSelector = (props) => {
-  /*
   const dateNow = moment(new Date())
   const minDate = dateNow.format('DD.MM.YY')
   const maxDate = dateNow.add(2, 'M').format('DD.MM.YY')
-  //generate 2 month date range from now
-  */
-
-  const minDate = moment(new Date()).format('DD.MM.YY')
-  const maxDate = moment('2020-09-13').format('DD.MM.YY')
 
   const [date, setDate] = useState(props.day.format('DD.MM.YY'))
   const [modalVisible, setModalVisible] = useState(false)
